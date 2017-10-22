@@ -63,6 +63,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="Snapshots" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Employees.sql" />
@@ -76,6 +77,7 @@
     <Build Include="dbo\Tables\TurnTerapy.sql" />
     <Build Include="dbo\Stored Procedures\sp_Td.sql" />
     <Build Include="dbo\Stored Procedures\Generate_Scheduler.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\DatabaseTerapy_20171022_20-42-09.dacpac" />
