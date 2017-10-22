@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE Generate_Scheduler 
+﻿CREATE PROCEDURE [dbo].[Generate_Scheduler] 
 
 AS
 BEGIN
@@ -84,8 +84,8 @@ select  aa.DateApp + ss.timeStart, 0, 0,TurnTerapy.TurnID,0,''
 from #tblDate aa
 cross apply #tblTime ss
 cross apply TurnTerapy 
-where ToGenerate=1
+where TurnToGenerate=1
 
-
+ 
 
 END

@@ -13,3 +13,31 @@
     CONSTRAINT [FK_SchedulerTerapy_TurnTerapy] FOREIGN KEY ([SchedTurnID]) REFERENCES [dbo].[TurnTerapy] ([TurnID])
 );
 
+
+
+
+GO
+-- =============================================
+-- Author:		Alessandro
+-- Create date: 
+-- Description:	
+-- =============================================
+CREATE TRIGGER dbo.tr_SchedulerTerapy 
+   ON  dbo.SchedulerTerapy 
+   AFTER INSERT, UPDATE
+AS 
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for trigger here
+	if exists(select * from inserted i
+			inner join SchedulerTerapy s
+				on i.SchedulerDateTime=s.SchedulerDateTime
+					and i.SchedCustomerID!=s.SchedCustomerID
+			)
+	begin
+		return;
+	end
+END
